@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.RegisterActivity">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/dp_16"
+            android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dp_8"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:text="Pendaftaran Aplikasi"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnDaftar"
+        android:layout_below="@+id/header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/header"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_16">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Silahkan isi data dibawah ini"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_18"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dp_8"
+                    android:text="Nama"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+                <EditText
+                    android:id="@+id/etNama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:background="@color/gray_muda_banget"
+                    android:gravity="top"
+                    android:hint="Nama"
+                    android:inputType="text"
+                    android:padding="@dimen/dp_16"
+                    android:singleLine="true"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_tua_hehe"
+                    android:textSize="@dimen/sp_18" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dp_8"
+                    android:text="Jenis Kelamin"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+                <EditText
+                    android:id="@+id/etJenisKelamin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:background="@color/gray_muda_banget"
+                    android:focusable="false"
+                    android:gravity="top"
+                    android:hint="Jenis Kelamin"
+                    android:inputType="text"
+                    android:padding="@dimen/dp_16"
+                    android:singleLine="true"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_tua_hehe"
+                    android:textSize="@dimen/sp_18" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dp_8"
+                    android:text="No Handphone"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+                <EditText
+                    android:id="@+id/etNoHp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:background="@color/gray_muda_banget"
+                    android:gravity="top"
+                    android:hint="No Handphpone"
+                    android:inputType="phone"
+                    android:padding="@dimen/dp_16"
+                    android:singleLine="true"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_tua_hehe"
+                    android:textSize="@dimen/sp_18" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dp_8"
+                    android:text="Username"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+                <EditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:background="@color/gray_muda_banget"
+                    android:gravity="top"
+                    android:hint="Username"
+                    android:inputType="text"
+                    android:padding="@dimen/dp_16"
+                    android:singleLine="true"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_tua_hehe"
+                    android:textSize="@dimen/sp_18" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dp_8"
+                    android:text="Password"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:background="@color/gray_muda_banget"
+                    android:gravity="top"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:padding="@dimen/dp_16"
+                    android:singleLine="true"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_tua_hehe"
+                    android:textSize="@dimen/sp_18" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dp_8"
+                    android:text="Konfirmasi Password"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_14" />
+
+                <EditText
+                    android:id="@+id/etPasswordKonfirmasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:background="@color/gray_muda_banget"
+                    android:gravity="top"
+                    android:hint="Konfirmasi Password"
+                    android:inputType="textPassword"
+                    android:padding="@dimen/dp_16"
+                    android:singleLine="true"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_tua_hehe"
+                    android:textSize="@dimen/sp_18" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/btnDaftar"
+        style="@style/RippleStyleWhite"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        tools:ignore="InefficientWeight">
+
+        <TextView
+            android:id="@+id/tvButtonPakai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="DAFTAR"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_20" />
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+</RelativeLayout>

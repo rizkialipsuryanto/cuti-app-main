@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ln"
+        android:padding="@dimen/dp_8"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvKodeBooking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@id/tvStatus"
+                android:singleLine="true"
+                android:text="@string/LOADING"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_14"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:text="@string/LOADING"
+                android:textColor="@color/base"
+                android:textSize="@dimen/sp_14"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_marginTop="@dimen/dp_8"
+            android:background="@color/gray_muda_banget"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_2"/>
+
+        <TextView
+            android:id="@+id/tvNama"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Nama : -"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14"/>
+
+        <TextView
+            android:id="@+id/tvTanggal"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Tanggal : -"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14"/>
+
+        <View
+            android:layout_marginTop="@dimen/dp_8"
+            android:background="@color/gray_muda_banget"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_2"/>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_alignParentRight="true"
+                android:id="@+id/btnDetail"
+                android:padding="@dimen/dp_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_tombol"
+                android:text="DETAIL"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_12" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_below="@id/ln"
+        android:background="@color/basemuda"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_8"/>
+
+</RelativeLayout>

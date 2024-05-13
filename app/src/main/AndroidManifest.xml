@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/cuti"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Travel"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:icon"
+        tools:targetApi="31">
+        <activity
+            android:name=".activity.karyawan.LainnyaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.karyawan.ListDitolakActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.karyawan.ListDisetujuiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.karyawan.ListMenungguActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.driver.DetailTransaksiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.driver.ListTransaksiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.driver.MainDriverActivity"
+            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".activity.ListBookingActivity"-->
+<!--            android:exported="false" />-->
+        <activity
+            android:name=".activity.DetailBookingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.DetailTravelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.JadwalKeberangkatanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.karyawan.BookingSekarangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SplashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+    </application>
+
+</manifest>

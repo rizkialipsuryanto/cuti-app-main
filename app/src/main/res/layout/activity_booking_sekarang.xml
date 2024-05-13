@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray_muda_banget"
+    tools:context=".activity.karyawan.BookingSekarangActivity">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="start"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/dp_16"
+            android:src="@drawable/ic_baseline_arrow_back_ios_new_24" />
+
+        <TextView
+            android:id="@+id/tvJudul"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_toEndOf="@+id/ivBack"
+            android:gravity="center"
+            android:text="Ajukan Cuti"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray_muda_aja" />
+
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/sweepRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/layoutNotFound"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp_16">
+
+                        <ImageView
+                            android:id="@+id/logoNotFound"
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="@dimen/dp_16"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/travel" />
+
+                        <TextView
+                            android:id="@+id/tvError"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Loading..."
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_16" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/formBooking"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_margin="@dimen/dp_8"
+                    app:cardElevation="0dp"
+                    app:contentPadding="@dimen/dp_16"
+                    app:cardCornerRadius="@dimen/dp_8"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Jenis Cuti"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <EditText
+                            android:id="@+id/etJeniscuti"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:layout_marginBottom="@dimen/dp_8"
+                            android:background="@color/gray_muda_banget"
+                            android:focusable="false"
+                            android:gravity="top"
+                            android:hint="Pilih Jenis Cuti"
+                            android:inputType="textMultiLine"
+                            android:minHeight="@dimen/actionBarSize"
+                            android:padding="@dimen/dp_16"
+                            android:singleLine="false"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Koordinator"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <EditText
+                            android:id="@+id/etKoordinator"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:layout_marginBottom="@dimen/dp_8"
+                            android:background="@color/gray_muda_banget"
+                            android:focusable="false"
+                            android:hint="Koordinator"
+                            android:gravity="top"
+                            android:padding="@dimen/dp_16"
+                            android:singleLine="false"
+                            android:inputType="textMultiLine"
+                            android:minHeight="@dimen/actionBarSize"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Kepala Instalasi"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <EditText
+                            android:id="@+id/etKepalaInstalasi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:layout_marginBottom="@dimen/dp_8"
+                            android:background="@color/gray_muda_banget"
+                            android:focusable="false"
+                            android:hint="Kepala Instalasi"
+                            android:gravity="top"
+                            android:padding="@dimen/dp_16"
+                            android:singleLine="false"
+                            android:inputType="textMultiLine"
+                            android:minHeight="@dimen/actionBarSize"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Atasan Langsung"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <EditText
+                            android:id="@+id/etAtasanLangsung"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:layout_marginBottom="@dimen/dp_8"
+                            android:background="@color/gray_muda_banget"
+                            android:focusable="false"
+                            android:hint="Atasan Langsung"
+                            android:gravity="top"
+                            android:padding="@dimen/dp_16"
+                            android:singleLine="false"
+                            android:inputType="textMultiLine"
+                            android:minHeight="@dimen/actionBarSize"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tanggal Pengambilan Cuti"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <EditText
+                            android:id="@+id/etTanggalberangkat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:layout_marginBottom="@dimen/dp_8"
+                            android:background="@color/gray_muda_banget"
+                            android:focusable="false"
+                            android:hint="Pilih Tanggal"
+                            android:gravity="top"
+                            android:padding="@dimen/dp_16"
+                            android:singleLine="false"
+                            android:inputType="textMultiLine"
+                            android:minHeight="@dimen/actionBarSize"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Alamat Selama Menjalankan Cuti"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <EditText
+                            android:id="@+id/etAlamat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:layout_marginBottom="@dimen/dp_8"
+                            android:background="@color/gray_muda_banget"
+                            android:focusable="false"
+                            android:hint="Alamat Selama Menjalankan Cuti"
+                            android:gravity="top"
+                            android:padding="@dimen/dp_16"
+                            android:singleLine="false"
+                            android:inputType="textMultiLine"
+                            android:minHeight="@dimen/actionBarSize"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Keterangan Cuti"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <EditText
+                            android:id="@+id/etKeteranganCuti"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:layout_marginBottom="@dimen/dp_8"
+                            android:background="@color/gray_muda_banget"
+                            android:focusable="false"
+                            android:hint="Keterangan Cuti"
+                            android:gravity="top"
+                            android:padding="@dimen/dp_16"
+                            android:singleLine="false"
+                            android:inputType="textMultiLine"
+                            android:minHeight="@dimen/actionBarSize"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_14" />
+
+                        <com.balysv.materialripple.MaterialRippleLayout
+                            android:id="@+id/btnProses"
+                            style="@style/RippleStyleWhite"
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:layout_weight="1"
+                            android:background="@color/colorPrimary"
+                            tools:ignore="InefficientWeight">
+
+                            <TextView
+                                android:id="@+id/tvBtnProses"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="SIMPAN"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/sp_18" />
+
+                        </com.balysv.materialripple.MaterialRippleLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

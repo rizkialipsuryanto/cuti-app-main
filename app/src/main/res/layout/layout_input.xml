@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_8">
+
+    <EditText
+        android:id="@+id/etText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginEnd="@dimen/dp_4"
+        android:background="@color/gray_muda_banget"
+        android:focusable="true"
+        android:gravity="top"
+        android:hint="Alasan Cancel"
+        android:inputType="text"
+        android:padding="@dimen/dp_16"
+        android:textColor="@color/black_tua_hehe"
+        android:textSize="@dimen/sp_14" />
+
+</LinearLayout>

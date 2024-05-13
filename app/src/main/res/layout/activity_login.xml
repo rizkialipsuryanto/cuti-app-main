@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_muda_banget"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/cardLogin"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="@dimen/dp_200"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/dp_16"
+                android:adjustViewBounds="true"
+                android:src="@drawable/cuti" />
+
+            <TextView
+                android:id="@+id/tvAppName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="@string/sistem_booking_travel"
+                android:textColor="@color/base"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMasukAplikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="Masuk Aplikasi"
+                android:textColor="@color/baseDark"
+                android:textSize="@dimen/sp_32"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="-32dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/dp_16"
+            app:cardElevation="0dp"
+            app:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_16">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:text="Username"
+                    android:textColor="@color/black_tua_hehe"
+                    android:textSize="@dimen/sp_14" />
+
+                <EditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginBottom="@dimen/dp_8"
+                    android:background="@color/gray_muda_banget"
+                    android:gravity="top"
+                    android:inputType="text"
+                    android:padding="@dimen/dp_16"
+                    android:singleLine="false"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_tua_hehe"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="Password"
+                    android:textColor="@color/black_tua_hehe"
+                    android:textSize="@dimen/sp_14" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginBottom="@dimen/dp_8"
+                    app:endIconMode="password_toggle">
+
+                    <EditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@color/gray_muda_banget"
+                        android:gravity="top"
+                        android:inputType="textPassword"
+                        android:padding="@dimen/dp_16"
+                        android:singleLine="false"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_tua_hehe"
+                        android:textSize="@dimen/sp_14" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:id="@+id/btnMasuk"
+                    style="@style/RippleStyleWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    tools:ignore="InefficientWeight">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Masuk"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/sp_18" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginBottom="@dimen/dp_32"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Belum punya akun ?"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDaftarDisini"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Daftar disini."
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/sp_16"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+</RelativeLayout>

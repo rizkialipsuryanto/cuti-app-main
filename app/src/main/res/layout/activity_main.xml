@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_muda_banget"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="start"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/cuti" />
+
+        <TextView
+            android:id="@+id/tvJudul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="CUTIKU"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="start"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/dp_8"
+            android:src="@drawable/ic_baseline_power_settings_new_24"
+            app:tint="@color/colorPrimary" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray_muda_aja" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/sweepRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_8"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp_16">
+
+                    <TextView
+                        android:id="@+id/tvNama"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Halo, RIZKI ALIP SURYANTO"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_18"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mau cuti hari apa ?"
+                        android:textColor="@color/black_tua_hehe"
+                        android:textSize="@dimen/sp_12"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_8"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp_16">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp_4"
+                        android:text="Kemudahan pengajuan cuti lewat aplikasi ini!"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_14"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp_8"
+                        android:text="Aplikasi cuti digunakan untuk mengajukan cuti yang akan di lihat atasan untuk di tindaklanjuti! Lebih mudah dengan aplikasi cuti"
+                        android:textColor="@color/black_tua_hehe"
+                        android:textSize="@dimen/sp_12"
+                        android:textStyle="normal" />
+
+                    <com.balysv.materialripple.MaterialRippleLayout
+                        android:id="@+id/btnBooking"
+                        style="@style/RippleStyleWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_48"
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimary"
+                        tools:ignore="InefficientWeight">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Ajukan Cuti"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/sp_18" />
+
+                    </com.balysv.materialripple.MaterialRippleLayout>
+
+                    <com.balysv.materialripple.MaterialRippleLayout
+                        android:id="@+id/btnAtasan"
+                        style="@style/RippleStyleWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_48"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorRedDark"
+                        android:visibility="invisible"
+                        tools:ignore="InefficientWeight">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Daftar Cuti Menunggu Approve"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/sp_18" />
+
+                    </com.balysv.materialripple.MaterialRippleLayout>
+                </LinearLayout>
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@color/blue_grey_200"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:padding="@dimen/dp_16">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="center"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <ImageButton-->
+<!--                                android:id="@+id/imgBtnMenunggu"-->
+<!--                                android:layout_width="70dp"-->
+<!--                                android:layout_height="70dp"-->
+<!--                                android:scaleType="fitCenter"-->
+<!--                                android:src="@drawable/checklist" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="center"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <ImageButton-->
+<!--                                android:id="@+id/imgBtnSetujui"-->
+<!--                                android:layout_width="70dp"-->
+<!--                                android:layout_height="70dp"-->
+<!--                                android:scaleType="fitCenter"-->
+<!--                                android:src="@drawable/approved" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="center"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <ImageButton-->
+<!--                                android:id="@+id/imgBtnTolak"-->
+<!--                                android:layout_width="70dp"-->
+<!--                                android:layout_height="70dp"-->
+<!--                                android:scaleType="fitCenter"-->
+<!--                                android:src="@drawable/rejected" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="center"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <ImageButton-->
+<!--                                android:id="@+id/imgBtnLainnya"-->
+<!--                                android:layout_width="70dp"-->
+<!--                                android:layout_height="70dp"-->
+<!--                                android:scaleType="fitCenter"-->
+<!--                                android:src="@drawable/article" />-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="@dimen/dp_8"-->
+<!--                                android:fontFamily="monospace"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="Menunggu"-->
+<!--                                android:textColor="@color/black_tua_hehe"-->
+<!--                                android:textSize="@dimen/sp_12"-->
+<!--                                android:textStyle="normal|bold" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="@dimen/dp_8"-->
+<!--                                android:fontFamily="monospace"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="Di Setujui"-->
+<!--                                android:textColor="@color/black_tua_hehe"-->
+<!--                                android:textSize="@dimen/sp_12"-->
+<!--                                android:textStyle="normal|bold" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="@dimen/dp_8"-->
+<!--                                android:fontFamily="monospace"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="Di Tolak"-->
+<!--                                android:textColor="@color/black_tua_hehe"-->
+<!--                                android:textSize="@dimen/sp_12"-->
+<!--                                android:textStyle="normal|bold" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="@dimen/dp_8"-->
+<!--                                android:fontFamily="monospace"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="Lainnya"-->
+<!--                                android:textColor="@color/black_tua_hehe"-->
+<!--                                android:textSize="@dimen/sp_12"-->
+<!--                                android:textStyle="normal|bold" />-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="center"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <ImageButton-->
+<!--                                android:id="@+id/imgBtnProfil"-->
+<!--                                android:layout_width="70dp"-->
+<!--                                android:layout_height="70dp"-->
+<!--                                android:scaleType="fitCenter"-->
+<!--                                android:src="@drawable/dizziness" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="center"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:visibility="invisible">-->
+
+<!--                            <ImageButton-->
+<!--                                android:id="@+id/imageButton2"-->
+<!--                                android:layout_width="70dp"-->
+<!--                                android:layout_height="70dp"-->
+<!--                                android:scaleType="fitCenter"-->
+<!--                                android:src="@drawable/approved" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="center"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <ImageButton-->
+<!--                                android:id="@+id/imageButton3"-->
+<!--                                android:layout_width="70dp"-->
+<!--                                android:layout_height="70dp"-->
+<!--                                android:scaleType="fitCenter"-->
+<!--                                android:src="@drawable/rejected"-->
+<!--                                android:visibility="invisible" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="center"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <ImageButton-->
+<!--                                android:id="@+id/imageButton4"-->
+<!--                                android:layout_width="70dp"-->
+<!--                                android:layout_height="70dp"-->
+<!--                                android:scaleType="fitCenter"-->
+<!--                                android:src="@drawable/article"-->
+<!--                                android:visibility="invisible" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="@dimen/dp_8"-->
+<!--                                android:fontFamily="monospace"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="Lainnya"-->
+<!--                                android:textColor="@color/black_tua_hehe"-->
+<!--                                android:textSize="@dimen/sp_12"-->
+<!--                                android:textStyle="normal|bold"-->
+<!--                                android:visibility="invisible" />-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="@dimen/dp_8"-->
+<!--                                android:fontFamily="monospace"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="Profil"-->
+<!--                                android:textColor="@color/black_tua_hehe"-->
+<!--                                android:textSize="@dimen/sp_12"-->
+<!--                                android:textStyle="normal|bold" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="@dimen/dp_8"-->
+<!--                                android:fontFamily="monospace"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="Di Setujui"-->
+<!--                                android:textColor="@color/black_tua_hehe"-->
+<!--                                android:textSize="@dimen/sp_12"-->
+<!--                                android:textStyle="normal|bold"-->
+<!--                                android:visibility="invisible" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="@dimen/dp_8"-->
+<!--                                android:fontFamily="monospace"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="Di Tolak"-->
+<!--                                android:textColor="@color/black_tua_hehe"-->
+<!--                                android:textSize="@dimen/sp_12"-->
+<!--                                android:textStyle="normal|bold"-->
+<!--                                android:visibility="invisible" />-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/basemuda"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp_16">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pengajuan cuti terakhir"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_14"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/btnLihatSemua"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:text="Lihat semua"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/sp_12"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tvLastUpdated"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Data 10 Transaksi terakhir kamu"
+                        android:textColor="@color/black_tua_hehe"
+                        android:textSize="@dimen/sp_12"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/basemuda"
+                    android:padding="@dimen/dp_16"
+                    android:layout_marginTop="-18dp">
+
+                    <LinearLayout
+                        android:id="@+id/layoutShimmer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/shimmer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layoutNotFound"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/basemuda">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dp_16">
+
+                            <ImageView
+                                android:id="@+id/logoNotFound"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="@dimen/dp_16"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/cuti" />
+
+                            <TextView
+                                android:id="@+id/tvError"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Loading..."
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sp_16" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>
