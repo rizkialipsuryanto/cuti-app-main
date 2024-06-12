@@ -24,7 +24,7 @@
             android:name=".activity.karyawan.ListDitolakActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.karyawan.ListDisetujuiActivity"
+            android:name=".activity.atasanLangsung.ListDisetujuiActivity"
             android:exported="false" />
         <activity
             android:name=".activity.karyawan.ListMenungguActivity"

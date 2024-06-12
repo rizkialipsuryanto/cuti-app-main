@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.karyawan.ListDisetujuiActivity">
+    tools:context=".activity.atasanLangsung.ListDisetujuiActivity">
 
     <RelativeLayout
         android:id="@+id/header"
@@ -33,21 +33,56 @@
             android:layout_centerInParent="true"
             android:layout_toEndOf="@+id/ivBack"
             android:gravity="center"
-            android:text="Cuti Disetujui"
+            android:text="List"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_20"
             android:textStyle="bold" />
 
     </RelativeLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:background="@color/gray_muda_banget"
+            android:focusable="false"
+            android:gravity="top"
+            android:hint="- Pilih Status -"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/actionBarSize"
+            android:padding="@dimen/dp_16"
+            android:singleLine="false"
+            android:textColor="@color/black_tua_hehe"
+            android:textSize="@dimen/sp_14" />
+
+        <Button
+            android:id="@+id/btnfilterstatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:text="Filter" />
+    </LinearLayout>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/sweepRefresh"
-        android:background="@color/basemuda"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="@color/basemuda">
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

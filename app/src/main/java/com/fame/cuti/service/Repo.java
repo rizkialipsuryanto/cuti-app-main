@@ -4,8 +4,11 @@ import com.fame.cuti.model.AtasanlangsungResponseModel;
 import com.fame.cuti.model.JeniscutiResponseModel;
 import com.fame.cuti.model.KepalainstalasiResponseModel;
 import com.fame.cuti.model.KoordinatorResponseModel;
+import com.fame.cuti.model.ResponseBookingModel;
+import com.fame.cuti.model.ResponseListApproveAtasanCutiModel;
 import com.fame.cuti.model.ResponseListRiwayatCutiModel;
 import com.fame.cuti.model.ResponseLoginModel;
+import com.fame.cuti.model.ResponseUniversalModel;
 import com.fame.cuti.model.StatusResponseModel;
 import com.fame.cuti.model.TransaksiResponseModel;
 
@@ -28,9 +31,9 @@ public interface Repo {
 //    @FormUrlEncoded
 //    Call<ResponseUniversalModel> register(@FieldMap Map<String, String> field);
 //
-//    @POST("transaksi/booking")
-//    @FormUrlEncoded
-//    Call<ResponseBookingModel> booking(@FieldMap Map<String, String> field);
+    @POST("cuti/insertcuti")
+    @FormUrlEncoded
+    Call<ResponseUniversalModel> insertcuti(@FieldMap Map<String, String> field);
 //
 //    @POST("transaksi/booking/cancel")
 //    @FormUrlEncoded
@@ -72,4 +75,7 @@ public interface Repo {
 
     @GET("cuti/list")
     Call<ResponseListRiwayatCutiModel> listRiwayat(@QueryMap Map<String, String> query);
+
+    @GET("cuti/listApproveInstalasi")
+    Call<ResponseListApproveAtasanCutiModel> listApproveInstalasi(@QueryMap Map<String, String> query);
 }
