@@ -88,7 +88,7 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.View
             v.tvNama.setText("Nama : "+data.getNama_user());
             v.tvTanggal.setText("Tanggal : "+tgl);
 
-            v.btnDetail.setOnClickListener(x -> {
+            v.btnSetuju.setOnClickListener(x -> {
                 Intent intent=new Intent(context, DetailTransaksiActivity.class);
                 intent.putExtra("kode_booking", data.getKode_booking());
                 intent.putExtra("nama_user", data.getNama_user());

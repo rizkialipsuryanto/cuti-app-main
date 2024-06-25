@@ -22,14 +22,14 @@
             android:adjustViewBounds="true"
             android:clickable="true"
             android:focusable="true"
-            android:src="@drawable/travel" />
+            android:src="@drawable/cuti" />
 
         <TextView
             android:id="@+id/tvJudul"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="TRAVELKU"
+            android:text="CUTIKU"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_20"
             android:textStyle="bold" />
@@ -95,25 +95,25 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_8"
-                    app:endIconMode="clear_text">
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/dp_8"-->
+<!--                    app:endIconMode="clear_text">-->
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etAlamatUser"
-                        android:hint="Alamat"
-                        android:text="@string/LOADING"
-                        android:singleLine="true"
-                        android:focusable="false"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/grey_300"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+<!--                    <com.google.android.material.textfield.TextInputEditText-->
+<!--                        android:id="@+id/etAlamatUser"-->
+<!--                        android:hint="Alamat"-->
+<!--                        android:text="@string/LOADING"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:focusable="false"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textColorHint="@color/grey_300"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"/>-->
 
-                </com.google.android.material.textfield.TextInputLayout>
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -155,45 +155,45 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_8"
-                    app:endIconMode="clear_text">
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/dp_8"-->
+<!--                    app:endIconMode="clear_text">-->
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etKotaAsal"
-                        android:hint="Kota Asal"
-                        android:text="@string/LOADING"
-                        android:singleLine="true"
-                        android:focusable="false"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/grey_300"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+<!--                    <com.google.android.material.textfield.TextInputEditText-->
+<!--                        android:id="@+id/etKotaAsal"-->
+<!--                        android:hint="Kota Asal"-->
+<!--                        android:text="@string/LOADING"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:focusable="false"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textColorHint="@color/grey_300"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"/>-->
 
-                </com.google.android.material.textfield.TextInputLayout>
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_8"
-                    app:endIconMode="clear_text">
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/dp_8"-->
+<!--                    app:endIconMode="clear_text">-->
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etKotaTujuan"
-                        android:hint="Kota Tujuan"
-                        android:text="@string/LOADING"
-                        android:singleLine="true"
-                        android:focusable="false"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/grey_300"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+<!--                    <com.google.android.material.textfield.TextInputEditText-->
+<!--                        android:id="@+id/etKotaTujuan"-->
+<!--                        android:hint="Kota Tujuan"-->
+<!--                        android:text="@string/LOADING"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:focusable="false"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textColorHint="@color/grey_300"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"/>-->
 
-                </com.google.android.material.textfield.TextInputLayout>
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
 
                 <com.balysv.materialripple.MaterialRippleLayout
                     android:id="@+id/btnMenujuLokasi"
@@ -209,7 +209,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="MENUJU LOKASI"
+                        android:text="TOLAK"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/sp_18" />
@@ -231,7 +231,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="SAYA SUDAH JEMPUT"
+                        android:text="SETUJU"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/sp_18" />

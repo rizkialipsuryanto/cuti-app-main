@@ -85,12 +85,12 @@
 
             <TextView
                 android:layout_alignParentRight="true"
-                android:id="@+id/btnDetail"
+                android:id="@+id/btnSetuju"
                 android:padding="@dimen/dp_8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_tombol"
-                android:text="DETAIL"
+                android:text="Detail"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_12" />

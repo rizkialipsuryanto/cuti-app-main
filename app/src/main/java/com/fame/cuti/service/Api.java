@@ -30,7 +30,7 @@ public class Api {
 //    public static String BASE_URL_API = "http://10.0.2.2/travel-api-main/api/v1/";
 //    public static String BASE_URL_API = "http://192.168.20.144/cuti-api-main/app/api/v1/";
 //    public static String BASE_URL_API = "http://192.168.20.114/cuti-api/v1/api/";
-    public static String BASE_URL_API = "http://192.168.1.9/cuti-api-skripsi/api/V1/";
+    public static String BASE_URL_API = "http://192.168.20.248/cuti-api-skripsi/api/V1/";
     public static final String DEFAULT_USERNAME = "admin";
     public static final String DEFAULT_PASSWORD = "1234";
 
