@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.fame.cuti.core.Core;
 import com.fame.cuti.databinding.ActivityDetailTransaksiBinding;
+import com.fame.cuti.model.ApproveResponseModel;
 import com.fame.cuti.model.TransaksiResponseModel;
 import com.fame.cuti.service.Api;
 import com.fame.cuti.service.Repo;
@@ -29,6 +30,7 @@ public class DetailTransaksiActivity extends Core {
         v = ActivityDetailTransaksiBinding.inflate(getLayoutInflater());
         setContentView(v.getRoot());
         settingComponent();
+        kondisi();
     }
 
     private void settingComponent() {
@@ -39,8 +41,21 @@ public class DetailTransaksiActivity extends Core {
     protected void onResume() {
         super.onResume();
         getData();
+        kondisi();
     }
 
+    private void kondisi(){
+        Intent intent = getIntent();
+        if (intent.getStringExtra("status").equals("Approved"))
+        {
+            v.btnAction.setVisibility(View.GONE);
+            v.btnMenujuLokasi.setVisibility(View.GONE);
+        }
+        else {
+            v.btnAction.setVisibility(View.VISIBLE);
+            v.btnMenujuLokasi.setVisibility(View.VISIBLE);
+        }
+    }
     private void getData() {
         v.sweepRefresh.setRefreshing(false);
         Intent intent = getIntent();
@@ -69,68 +84,43 @@ public class DetailTransaksiActivity extends Core {
 //            mapIntent.setPackage("com.google.android.apps.maps");
 //            startActivity(mapIntent);
 //        });
-//        v.btnAction.setOnClickListener(x -> {
-//            ProgressDialog loading = new ProgressDialog(context);
-//            loading.setTitle("Proses Login");
-//            loading.setMessage("Mohon tunggu beberapa saat ...");
-//            loading.setCancelable(false);
-//            loading.show();
-//
-//            Map<String, String> r = new HashMap<>();
-//            r.put("id_driver", preferences.getCredential().getData().getUid());
-//            r.put("kode_booking", intent.getStringExtra("kode_booking"));
-//
+        v.btnAction.setOnClickListener(x -> {
+            ProgressDialog loading = new ProgressDialog(context);
+            loading.setTitle("Proses Approve");
+            loading.setMessage("Mohon tunggu beberapa saat ...");
+            loading.setCancelable(false);
+            loading.show();
+
+            Map<String, String> r = new HashMap<>();
+            r.put("no_cuti", intent.getStringExtra("no_cuti"));
+            r.put("stt_cuti", "3");
+
 //            if(intent.getStringExtra("status_jemput").equalsIgnoreCase("1")) {
-//
-//                Api.createService(context, Repo.class)
-//                        .prosesJemput(r)
-//                        .enqueue(new Callback<TransaksiResponseModel>() {
-//                            @Override
-//                            public void onResponse(Call<TransaksiResponseModel> call, Response<TransaksiResponseModel> response) {
-//                                loading.dismiss();
-//                                if (response.isSuccessful()) {
-//                                    if (response.body().getCode() == 200) {
-//                                        b.swal_sukses("Berhasil melakukan penjemputan 😊");
-//                                    } else {
-//                                        b.swal_warning(response.body().getMessage());
-//                                    }
-//                                } else {
-//                                    ce.showError(response.errorBody());
-//                                }
-//                            }
-//
-//                            @Override
-//                            public void onFailure(Call<TransaksiResponseModel> call, Throwable t) {
-//                                loading.dismiss();
-//                                b.swal_warning(t.getMessage());
-//                            }
-//                        });
-//
-//            } else if(intent.getStringExtra("status_jemput").equalsIgnoreCase("2")) {
-//                Api.createService(context, Repo.class)
-//                        .prosesSelesai(r)
-//                        .enqueue(new Callback<TransaksiResponseModel>() {
-//                            @Override
-//                            public void onResponse(Call<TransaksiResponseModel> call, Response<TransaksiResponseModel> response) {
-//                                loading.dismiss();
-//                                if (response.isSuccessful()) {
-//                                    if (response.body().getCode() == 200) {
-//                                        b.swal_sukses("Berhasil menyelesaiikan Transaksi 😊");
-//                                    } else {
-//                                        b.swal_warning(response.body().getMessage());
-//                                    }
-//                                } else {
-//                                    ce.showError(response.errorBody());
-//                                }
-//                            }
-//
-//                            @Override
-//                            public void onFailure(Call<TransaksiResponseModel> call, Throwable t) {
-//                                loading.dismiss();
-//                                b.swal_warning(t.getMessage());
-//                            }
-//                        });
-//            }
-//        });
+
+                Api.createService(context, Repo.class)
+                        .approveInstalasi(r)
+                        .enqueue(new Callback<ApproveResponseModel>() {
+                            @Override
+                            public void onResponse(Call<ApproveResponseModel> call, Response<ApproveResponseModel> response) {
+                                loading.dismiss();
+                                if (response.isSuccessful()) {
+                                    if (response.body().getCode() == 200) {
+                                        b.swal_sukses("Berhasil melakukan penjemputan 😊");
+                                    } else {
+                                        b.swal_warning(response.body().getMessage());
+                                    }
+                                } else {
+                                    ce.showError(response.errorBody());
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<ApproveResponseModel> call, Throwable t) {
+                                loading.dismiss();
+                                b.swal_warning(t.getMessage());
+                            }
+                        });
+
+        });
     }
 }

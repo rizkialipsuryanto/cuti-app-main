@@ -1,5 +1,6 @@
 package com.fame.cuti.service;
 
+import com.fame.cuti.model.ApproveResponseModel;
 import com.fame.cuti.model.AtasanlangsungResponseModel;
 import com.fame.cuti.model.JeniscutiResponseModel;
 import com.fame.cuti.model.KepalainstalasiResponseModel;
@@ -78,4 +79,8 @@ public interface Repo {
 
     @GET("cuti/listApproveInstalasi")
     Call<ResponseListApproveAtasanCutiModel> listApproveInstalasi(@QueryMap Map<String, String> query);
+
+    @POST("cuti/approveInstalasi")
+    @FormUrlEncoded
+    Call<ApproveResponseModel> approveInstalasi(@FieldMap Map<String, String> field);
 }
