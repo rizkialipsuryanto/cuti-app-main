@@ -116,7 +116,7 @@ public class BookingSekarangActivity extends Core {
             Map<String, String> r = new HashMap<>();
             r.put("uid", preferences.getCredential().getData().getUid().toString());
             r.put("jeniscuti", id_jenis.toString());
-            r.put("tglambilcuti", v.etTanggalberangkat.getText().toString());
+            r.put("tglambilcuti", v.selectedDatesTextView.getText().toString());
             r.put("keterangan", v.etKeteranganCuti.getText().toString());
             r.put("alamatcuti", v.etAlamat.getText().toString());
 
@@ -451,7 +451,11 @@ public class BookingSekarangActivity extends Core {
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+//                        String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+                        int displayBulan = month + 1;
+                        String formattedMonth = String.format("%02d", displayBulan);
+
+                        String selectedDate = year + "-" + formattedMonth + "-" + dayOfMonth;
                         selectedDates.add(selectedDate);
                         Log.d(TAG, selectedDate);
                         Log.d(TAG, selectedDates.toString());

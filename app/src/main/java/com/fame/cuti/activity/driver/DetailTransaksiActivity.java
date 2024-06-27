@@ -78,12 +78,44 @@ public class DetailTransaksiActivity extends Core {
 //        }
 //        v.etKotaAsal.setText(intent.getStringExtra("kota_origin"));
 //        v.etKotaTujuan.setText(intent.getStringExtra("kota_destination"));
-//        v.btnMenujuLokasi.setOnClickListener(x -> {
-//            Uri gmmIntentUri = Uri.parse("google.navigation:q="+intent.getStringExtra("lat_jemput")+","+intent.getStringExtra("lng_jemput"));
-//            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-//            mapIntent.setPackage("com.google.android.apps.maps");
-//            startActivity(mapIntent);
-//        });
+        v.btnMenujuLokasi.setOnClickListener(x -> {
+            ProgressDialog loading = new ProgressDialog(context);
+            loading.setTitle("Proses Approve");
+            loading.setMessage("Mohon tunggu beberapa saat ...");
+            loading.setCancelable(false);
+            loading.show();
+
+            Map<String, String> r = new HashMap<>();
+            r.put("uid", preferences.getCredential().getData().getUid());
+            r.put("no_cuti", intent.getStringExtra("no_cuti"));
+            r.put("stt_cuti", "99");
+
+//            if(intent.getStringExtra("status_jemput").equalsIgnoreCase("1")) {
+
+            Api.createService(context, Repo.class)
+                    .approveInstalasi(r)
+                    .enqueue(new Callback<ApproveResponseModel>() {
+                        @Override
+                        public void onResponse(Call<ApproveResponseModel> call, Response<ApproveResponseModel> response) {
+                            loading.dismiss();
+                            if (response.isSuccessful()) {
+                                if (response.body().getCode() == 200) {
+                                    b.swal_sukses("Berhasil melakukan penolakan 😊");
+                                } else {
+                                    b.swal_warning(response.body().getMessage());
+                                }
+                            } else {
+                                ce.showError(response.errorBody());
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ApproveResponseModel> call, Throwable t) {
+                            loading.dismiss();
+                            b.swal_warning(t.getMessage());
+                        }
+                    });
+        });
         v.btnAction.setOnClickListener(x -> {
             ProgressDialog loading = new ProgressDialog(context);
             loading.setTitle("Proses Approve");
@@ -92,6 +124,7 @@ public class DetailTransaksiActivity extends Core {
             loading.show();
 
             Map<String, String> r = new HashMap<>();
+            r.put("uid", preferences.getCredential().getData().getUid());
             r.put("no_cuti", intent.getStringExtra("no_cuti"));
             r.put("stt_cuti", "3");
 
@@ -105,7 +138,7 @@ public class DetailTransaksiActivity extends Core {
                                 loading.dismiss();
                                 if (response.isSuccessful()) {
                                     if (response.body().getCode() == 200) {
-                                        b.swal_sukses("Berhasil melakukan penjemputan 😊");
+                                        b.swal_sukses("Berhasil melakukan verifikasi 😊");
                                     } else {
                                         b.swal_warning(response.body().getMessage());
                                     }
