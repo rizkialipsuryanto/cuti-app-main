@@ -454,8 +454,9 @@ public class BookingSekarangActivity extends Core {
 //                        String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
                         int displayBulan = month + 1;
                         String formattedMonth = String.format("%02d", displayBulan);
+                        String formattedDay = String.format("%02d", dayOfMonth);
 
-                        String selectedDate = year + "-" + formattedMonth + "-" + dayOfMonth;
+                        String selectedDate = year + "-" + formattedMonth + "-" + formattedDay;
                         selectedDates.add(selectedDate);
                         Log.d(TAG, selectedDate);
                         Log.d(TAG, selectedDates.toString());

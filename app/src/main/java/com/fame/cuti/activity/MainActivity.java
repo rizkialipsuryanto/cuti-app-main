@@ -45,7 +45,7 @@ public class MainActivity extends Core {
         v.btnLihatSemua.setOnClickListener(x -> startActivity(new Intent(context, ListMenungguActivity.class)));
         v.btnAtasan.setOnClickListener(x -> startActivity(new Intent(context, ListDisetujuiActivity.class)));
 
-        if (preferences.getCredential().getData().getHak_akses().equals("")){
+        if (preferences.getCredential().getData().getHak_akses().equals("1")){
             v.btnAtasan.setVisibility(View.GONE);
         }
         else{
