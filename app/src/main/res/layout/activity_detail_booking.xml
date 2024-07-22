@@ -33,7 +33,7 @@
             android:layout_centerInParent="true"
             android:layout_toEndOf="@+id/ivBack"
             android:gravity="center"
-            android:text="Detail Tiket"
+            android:text="Detail Cuti"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_20"
             android:textStyle="bold" />
@@ -71,8 +71,186 @@
                 android:textSize="@dimen/dp_24"
                 android:textStyle="bold" />
 
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/cd1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="8dp"-->
+<!--                app:cardCornerRadius="6dp"-->
+<!--                app:cardElevation="1dp"-->
+<!--                app:cardPreventCornerOverlap="false"-->
+<!--                app:cardUseCompatPadding="true">-->
+
+<!--                <LinearLayout-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
+<!--                    <LinearLayout-->
+<!--                        android:orientation="horizontal"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:layout_weight="4"-->
+<!--                            android:paddingStart="@dimen/dp_16"-->
+<!--                            android:paddingTop="@dimen/dp_16"-->
+<!--                            tools:ignore="RtlSymmetry">-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/namaTravel"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:singleLine="true"-->
+<!--                                android:text="@string/LOADING"-->
+<!--                                android:textSize="18sp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--                                android:textColor="@color/grey_80"-->
+<!--                                app:fontFamily="sans-serif-medium" />-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/noTNKB"-->
+<!--                                android:visibility="gone"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:gravity="center_vertical"-->
+<!--                                android:singleLine="true"-->
+<!--                                android:text="No. TNKB : R 1234 DD"-->
+<!--                                android:textSize="16sp"-->
+<!--                                android:layout_marginBottom="@dimen/dp_12"-->
+<!--                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"-->
+<!--                                android:textColor="@color/grey_60" />-->
+<!--                        </LinearLayout>-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:layout_weight="6"-->
+<!--                            android:paddingEnd="@dimen/dp_16"-->
+<!--                            android:paddingTop="@dimen/dp_16">-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/harga"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:gravity="end"-->
+<!--                                android:layout_marginLeft="@dimen/spacing_xsmall"-->
+<!--                                android:layout_marginRight="@dimen/spacing_xsmall"-->
+<!--                                android:singleLine="true"-->
+<!--                                android:text="Rp. loading /kursi"-->
+<!--                                android:textSize="@dimen/sp_16"-->
+<!--                                android:layout_marginBottom="@dimen/dp_12"-->
+<!--                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"-->
+<!--                                android:textColor="@color/color_dolanmas" />-->
+
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="1dp"-->
+<!--                        android:background="@color/gray_tua" />-->
+<!--                    <LinearLayout-->
+<!--                        android:orientation="horizontal"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:layout_weight="2"-->
+<!--                            android:padding="@dimen/dp_8">-->
+
+<!--                            <RelativeLayout-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:padding="@dimen/dp_10">-->
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/jamOrigin"-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_alignParentLeft="true"-->
+<!--                                    android:text="loading:loading"-->
+<!--                                    android:textColor="@color/black_tua_hehe"-->
+<!--                                    android:textSize="16sp" />-->
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/origin"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_alignParentRight="true"-->
+<!--                                    android:layout_marginLeft="@dimen/dp_32"-->
+<!--                                    android:layout_toRightOf="@+id/jamOrigin"-->
+<!--                                    android:text="@string/LOADING"-->
+<!--                                    android:textColor="@color/black_tua_hehe"-->
+<!--                                    android:textSize="16sp" />-->
+
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/arrowDown"-->
+<!--                                    android:layout_width="@dimen/dp_50"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_below="@+id/jamOrigin"-->
+<!--                                    android:layout_alignParentStart="true"-->
+<!--                                    android:layout_centerInParent="true"-->
+<!--                                    android:layout_marginLeft="@dimen/dp_18"-->
+<!--                                    android:focusable="true"-->
+<!--                                    android:padding="@dimen/dp_4"-->
+<!--                                    android:src="@drawable/ic_baseline_arrow_downward_24"-->
+<!--                                    app:tint="@color/black_tua_hehe" />-->
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/jamDestination"-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_below="@id/arrowDown"-->
+<!--                                    android:layout_alignParentLeft="true"-->
+<!--                                    android:text="loading:loading"-->
+<!--                                    android:textColor="@color/black_tua_hehe"-->
+<!--                                    android:textSize="16sp" />-->
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/destination"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_below="@id/arrowDown"-->
+<!--                                    android:layout_alignParentRight="true"-->
+<!--                                    android:layout_marginLeft="@dimen/dp_32"-->
+<!--                                    android:layout_toRightOf="@+id/jamOrigin"-->
+<!--                                    android:text="@string/LOADING"-->
+<!--                                    android:textColor="@color/black_tua_hehe"-->
+<!--                                    android:textSize="16sp" />-->
+<!--                            </RelativeLayout>-->
+<!--                        </LinearLayout>-->
+<!--                        <LinearLayout-->
+<!--                            android:visibility="gone"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:layout_weight="6"-->
+<!--                            android:padding="@dimen/dp_8">-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/sisaKursi"-->
+<!--                                android:layout_marginTop="@dimen/dp_12"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:gravity="end|bottom"-->
+<!--                                android:layout_marginLeft="@dimen/spacing_xsmall"-->
+<!--                                android:layout_marginRight="@dimen/spacing_xsmall"-->
+<!--                                android:text="total loading kursi"-->
+<!--                                android:textSize="16sp"-->
+<!--                                android:layout_marginBottom="@dimen/dp_12"-->
+<!--                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"-->
+<!--                                android:textColor="@color/red" />-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--            </androidx.cardview.widget.CardView>-->
+
             <androidx.cardview.widget.CardView
-                android:id="@+id/cd1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -85,222 +263,6 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:layout_weight="4"
-                            android:paddingStart="@dimen/dp_16"
-                            android:paddingTop="@dimen/dp_16"
-                            tools:ignore="RtlSymmetry">
-
-                            <TextView
-                                android:id="@+id/namaTravel"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:singleLine="true"
-                                android:text="@string/LOADING"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:textColor="@color/grey_80"
-                                app:fontFamily="sans-serif-medium" />
-
-                            <TextView
-                                android:id="@+id/noTNKB"
-                                android:visibility="gone"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical"
-                                android:singleLine="true"
-                                android:text="No. TNKB : R 1234 DD"
-                                android:textSize="16sp"
-                                android:layout_marginBottom="@dimen/dp_12"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/grey_60" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:layout_weight="6"
-                            android:paddingEnd="@dimen/dp_16"
-                            android:paddingTop="@dimen/dp_16">
-
-                            <TextView
-                                android:id="@+id/harga"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="end"
-                                android:layout_marginLeft="@dimen/spacing_xsmall"
-                                android:layout_marginRight="@dimen/spacing_xsmall"
-                                android:singleLine="true"
-                                android:text="Rp. loading /kursi"
-                                android:textSize="@dimen/sp_16"
-                                android:layout_marginBottom="@dimen/dp_12"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/color_dolanmas" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/gray_tua" />
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:layout_weight="2"
-                            android:padding="@dimen/dp_8">
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:padding="@dimen/dp_10">
-
-                                <TextView
-                                    android:id="@+id/jamOrigin"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentLeft="true"
-                                    android:text="loading:loading"
-                                    android:textColor="@color/black_tua_hehe"
-                                    android:textSize="16sp" />
-
-                                <TextView
-                                    android:id="@+id/origin"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_marginLeft="@dimen/dp_32"
-                                    android:layout_toRightOf="@+id/jamOrigin"
-                                    android:text="@string/LOADING"
-                                    android:textColor="@color/black_tua_hehe"
-                                    android:textSize="16sp" />
-
-                                <ImageView
-                                    android:id="@+id/arrowDown"
-                                    android:layout_width="@dimen/dp_50"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/jamOrigin"
-                                    android:layout_alignParentStart="true"
-                                    android:layout_centerInParent="true"
-                                    android:layout_marginLeft="@dimen/dp_18"
-                                    android:focusable="true"
-                                    android:padding="@dimen/dp_4"
-                                    android:src="@drawable/ic_baseline_arrow_downward_24"
-                                    app:tint="@color/black_tua_hehe" />
-
-                                <TextView
-                                    android:id="@+id/jamDestination"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@id/arrowDown"
-                                    android:layout_alignParentLeft="true"
-                                    android:text="loading:loading"
-                                    android:textColor="@color/black_tua_hehe"
-                                    android:textSize="16sp" />
-
-                                <TextView
-                                    android:id="@+id/destination"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@id/arrowDown"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_marginLeft="@dimen/dp_32"
-                                    android:layout_toRightOf="@+id/jamOrigin"
-                                    android:text="@string/LOADING"
-                                    android:textColor="@color/black_tua_hehe"
-                                    android:textSize="16sp" />
-                            </RelativeLayout>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:visibility="gone"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:layout_weight="6"
-                            android:padding="@dimen/dp_8">
-
-                            <TextView
-                                android:id="@+id/sisaKursi"
-                                android:layout_marginTop="@dimen/dp_12"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="end|bottom"
-                                android:layout_marginLeft="@dimen/spacing_xsmall"
-                                android:layout_marginRight="@dimen/spacing_xsmall"
-                                android:text="total loading kursi"
-                                android:textSize="16sp"
-                                android:layout_marginBottom="@dimen/dp_12"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/red" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="1dp"
-                app:cardPreventCornerOverlap="false"
-                app:cardUseCompatPadding="true">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:layout_weight="4"
-                            android:paddingStart="@dimen/dp_16"
-                            android:paddingTop="@dimen/dp_16"
-                            tools:ignore="RtlSymmetry">
-
-                            <TextView
-                                android:id="@+id/namaDriver"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:singleLine="true"
-                                android:text="@string/LOADING"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:textColor="@color/grey_80"
-                                app:fontFamily="sans-serif-medium" />
-
-                            <TextView
-                                android:id="@+id/tvTanggal"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical"
-                                android:singleLine="true"
-                                android:text="@string/LOADING"
-                                android:textSize="16sp"
-                                android:layout_marginBottom="@dimen/dp_12"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:textColor="@color/grey_60" />
-                        </LinearLayout>
-                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -316,19 +278,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingTop="@dimen/dp_8"
-                            android:text="No Identitas"
+                            android:text="No Cuti"
                             android:textColor="@color/black"
                             android:textSize="@dimen/sp_14" />
 
                         <EditText
-                            android:id="@+id/etNoIdentitas"
+                            android:id="@+id/etNoCuti"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp_4"
                             android:background="@color/gray_muda_banget"
-                            android:gravity="top"
                             android:focusable="false"
-                            android:hint="No Identitas"
+                            android:gravity="top"
+                            android:hint="No Cuti"
                             android:inputType="text"
                             android:padding="@dimen/dp_16"
                             android:singleLine="true"
@@ -364,19 +326,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingTop="@dimen/dp_8"
-                            android:text="Alamat"
+                            android:text="Nik"
                             android:textColor="@color/black"
                             android:textSize="@dimen/sp_14" />
 
                         <EditText
-                            android:id="@+id/etAlamat"
+                            android:id="@+id/etNik"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp_4"
                             android:background="@color/gray_muda_banget"
                             android:gravity="top"
                             android:focusable="false"
-                            android:hint="Alamat"
+                            android:hint="Nik"
                             android:inputType="text"
                             android:padding="@dimen/dp_16"
                             android:singleLine="true"
@@ -388,19 +350,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingTop="@dimen/dp_8"
-                            android:text="Jenis Identitas"
+                            android:text="Profesi"
                             android:textColor="@color/black"
                             android:textSize="@dimen/sp_14" />
 
                         <EditText
-                            android:id="@+id/etJenisIdentitas"
+                            android:id="@+id/etProfesiDetail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp_4"
                             android:background="@color/gray_muda_banget"
-                            android:focusable="false"
                             android:gravity="top"
-                            android:hint="Jenis Identitas"
+                            android:focusable="false"
+                            android:hint="Profesi"
                             android:inputType="text"
                             android:padding="@dimen/dp_16"
                             android:singleLine="true"
@@ -412,19 +374,91 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingTop="@dimen/dp_8"
-                            android:text="Kursi"
+                            android:text="Tanggal Cuti"
                             android:textColor="@color/black"
                             android:textSize="@dimen/sp_14" />
 
                         <EditText
-                            android:id="@+id/etKursi"
+                            android:id="@+id/etTanggalCuti"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp_4"
                             android:background="@color/gray_muda_banget"
                             android:focusable="false"
                             android:gravity="top"
-                            android:hint="Pilih Kursi"
+                            android:hint="tglcuti"
+                            android:inputType="text"
+                            android:padding="@dimen/dp_16"
+                            android:singleLine="true"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_18" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/dp_8"
+                            android:text="Alamat Cuti"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_14" />
+
+                        <EditText
+                            android:id="@+id/etAlamatCuti"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:background="@color/gray_muda_banget"
+                            android:focusable="false"
+                            android:gravity="top"
+                            android:hint="alamatcuti"
+                            android:inputType="text"
+                            android:padding="@dimen/dp_16"
+                            android:singleLine="true"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_18" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/dp_8"
+                            android:text="Keterangan Cuti"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_14" />
+
+                        <EditText
+                            android:id="@+id/etKeteranganCuti"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:background="@color/gray_muda_banget"
+                            android:focusable="false"
+                            android:gravity="top"
+                            android:hint="keterangancuti"
+                            android:inputType="text"
+                            android:padding="@dimen/dp_16"
+                            android:singleLine="true"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_tua_hehe"
+                            android:textSize="@dimen/sp_18" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/dp_8"
+                            android:text="Status"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp_14" />
+
+                        <EditText
+                            android:id="@+id/etStatusDetail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:background="@color/gray_muda_banget"
+                            android:focusable="false"
+                            android:gravity="top"
+                            android:hint="status"
                             android:inputType="text"
                             android:padding="@dimen/dp_16"
                             android:singleLine="true"
@@ -460,20 +494,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:text="*Untuk pembayaran silahkan kirim ke rekening 66223366778899 AN David dan lakukan konfirmasi pembayaran dengan mengirimkan bukti bayar"
-                    android:textColor="#FF0000"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -484,7 +505,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btnKonfirmasiBooking"
+            android:id="@+id/btnCetak"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_vertical"
@@ -492,7 +513,7 @@
             android:clickable="true"
             android:paddingStart="@dimen/dp_8"
             android:paddingEnd="@dimen/dp_8"
-            android:text="KONFIRMASI PEMBAYARAN"
+            android:text="Cetak Surat Cuti"
             android:textColor="@color/white"
             android:textSize="@dimen/sp_12" />
 
@@ -502,19 +523,6 @@
             android:orientation="vertical">
 
         </LinearLayout>
-
-        <Button
-            android:id="@+id/btnCancelBooking"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|center_vertical"
-            android:background="@drawable/btn_tombol"
-            android:clickable="true"
-            android:paddingStart="@dimen/dp_8"
-            android:paddingEnd="@dimen/dp_8"
-            android:text="CANCEL BOOKING"
-            android:textColor="@color/white"
-            android:textSize="@dimen/sp_12" />
 
         <LinearLayout
             android:layout_width="0dp"

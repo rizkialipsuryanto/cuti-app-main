@@ -34,28 +34,28 @@ public class RegisterActivity extends Core {
 
     private void settingComponent() {
         v.btnDaftar.setOnClickListener(x -> prosesDaftar());
-        v.etJenisKelamin.setOnClickListener(x -> getKelamin());
+//        v.etJenisKelamin.setOnClickListener(x -> getKelamin());
     }
 
-    private void getKelamin() {
-        String[] pilihan = {"LAKI-LAKI", "PEREMPUAN"};
-        AlertDialog.Builder alert = new AlertDialog.Builder(context);
-        alert.setTitle("Pilih Jenis Kelamin")
-                .setItems(pilihan, (dialog, which) -> {
-                    switch (which) {
-                        case 0:
-                            v.etJenisKelamin.setText(pilihan[0]);
-                            break;
-                        case 1:
-                            v.etJenisKelamin.setText(pilihan[1]);
-                            break;
-                        default:
-                            b.toastLong("Tidak diketahui");
-                            break;
-                    }
-                });
-        alert.show();
-    }
+//    private void getKelamin() {
+//        String[] pilihan = {"LAKI-LAKI", "PEREMPUAN"};
+//        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+//        alert.setTitle("Pilih Jenis Kelamin")
+//                .setItems(pilihan, (dialog, which) -> {
+//                    switch (which) {
+//                        case 0:
+//                            v.etJenisKelamin.setText(pilihan[0]);
+//                            break;
+//                        case 1:
+//                            v.etJenisKelamin.setText(pilihan[1]);
+//                            break;
+//                        default:
+//                            b.toastLong("Tidak diketahui");
+//                            break;
+//                    }
+//                });
+//        alert.show();
+//    }
 
     private void prosesDaftar() {
         ProgressDialog loading = new ProgressDialog(context);

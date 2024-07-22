@@ -59,7 +59,7 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.ViewHold
 
         public void bind(ResponseListRiwayatCutiModel.data.items data, int position) {
             Bantuan b = new Bantuan(context);
-            v.noCuti.setText("Kode Booking : "+data.getNo_cuti());
+            v.noCuti.setText("No Cuti : "+data.getNo_cuti());
             v.namaUser.setText("Nama : " +data.getNama_emp());
             v.tglCuti.setText("Tanggal Cuti :"+data.getTglambilcuti());
             v.stt.setText("Status :"+data.getStatus());
@@ -70,6 +70,12 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.ViewHold
                 intent.putExtra("nama_emp", data.getNama_emp());
                 intent.putExtra("tglambilcuti", data.getTglambilcuti());
                 intent.putExtra("status", data.getStatus());
+
+                intent.putExtra("nik", data.getNik());
+                intent.putExtra("nip", data.getNip());
+                intent.putExtra("keterangan", data.getKeterangan());
+                intent.putExtra("alamat", data.getAlamat_cuti());
+                intent.putExtra("profesi", data.getNama_profesi());
                 context.startActivity(intent);
             });
 

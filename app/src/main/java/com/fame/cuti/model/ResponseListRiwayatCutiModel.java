@@ -69,6 +69,13 @@ public class ResponseListRiwayatCutiModel {
             private String stt;
             private String status;
 
+            private String keterangan;
+            private String alamat_cuti;
+            private String nip;
+            private String nik;
+            private String id_profesi;
+            private String nama_profesi;
+
             public String getNo_cuti() {
                 return no_cuti;
             }
@@ -123,6 +130,54 @@ public class ResponseListRiwayatCutiModel {
 
             public void setStatus(String status) {
                 this.status = status;
+            }
+
+            public String getKeterangan() {
+                return keterangan;
+            }
+
+            public void setKeterangan(String keterangan) {
+                this.keterangan = keterangan;
+            }
+
+            public String getAlamat_cuti() {
+                return alamat_cuti;
+            }
+
+            public void setAlamat_cuti(String alamat_cuti) {
+                this.alamat_cuti = alamat_cuti;
+            }
+
+            public String getNip() {
+                return nip;
+            }
+
+            public void setNip(String nip) {
+                this.nip = nip;
+            }
+
+            public String getNik() {
+                return nik;
+            }
+
+            public void setNik(String nik) {
+                this.nik = nik;
+            }
+
+            public String getId_profesi() {
+                return id_profesi;
+            }
+
+            public void setId_profesi(String id_profesi) {
+                this.id_profesi = id_profesi;
+            }
+
+            public String getNama_profesi() {
+                return nama_profesi;
+            }
+
+            public void setNama_profesi(String nama_profesi) {
+                this.nama_profesi = nama_profesi;
             }
         }
 

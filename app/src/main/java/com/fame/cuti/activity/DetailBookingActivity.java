@@ -39,21 +39,18 @@ public class DetailBookingActivity extends Core {
         v.ivBack.setOnClickListener(x -> finish());
 //        Bundle bundle = getIntent().getBundleExtra("bundle");
 //        ResponseListBookingModel.data.items items = (ResponseListBookingModel.data.items) bundle.getSerializable("data");
-        v.tvKodeBooking.setText(getIntent().getStringExtra("kode_booking"));
-        v.namaTravel.setText(getIntent().getStringExtra("merk"));
-        v.harga.setText(b.formatHarga(getIntent().getStringExtra("harga"))+" /kursi");
-        v.jamOrigin.setText(getIntent().getStringExtra("waktu_origin"));
-        v.jamDestination.setText(getIntent().getStringExtra("waktu_destination"));
-        v.origin.setText(getIntent().getStringExtra("kota_origin"));
-        v.destination.setText(getIntent().getStringExtra("kota_destination"));
-        v.namaDriver.setText(getIntent().getStringExtra("driver"));
-        v.tvTanggal.setText(getIntent().getStringExtra("tanggal"));
-        v.etNoIdentitas.setText(getIntent().getStringExtra("no_identitas"));
-        v.etNama.setText(getIntent().getStringExtra("nama_penumpang"));
-        v.etJenisIdentitas.setText(getIntent().getStringExtra("jenis_identitas"));
-        v.etKursi.setText(getIntent().getStringExtra("no_kursi"));
+        v.tvKodeBooking.setText(getIntent().getStringExtra("nama_emp"));
+        v.etNoCuti.setText(getIntent().getStringExtra("no_cuti"));
+        v.etNama.setText(getIntent().getStringExtra("nama_emp"));
+        v.etTanggalCuti.setText(getIntent().getStringExtra("tglambilcuti"));
+        v.etStatusDetail.setText(getIntent().getStringExtra("status"));
+
+        v.etNik.setText(getIntent().getStringExtra("nik"));
+        v.etProfesiDetail.setText(getIntent().getStringExtra("profesi"));
+        v.etAlamatCuti.setText(getIntent().getStringExtra("alamat"));
+        v.etKeteranganCuti.setText(getIntent().getStringExtra("keterangan"));
 //        v.btnCancelBooking.setOnClickListener(x -> cancelBooking(getIntent().getStringExtra("kode_booking")));
-        v.btnKonfirmasiBooking.setOnClickListener(x -> wa());
+        v.btnCetak.setOnClickListener(x -> wa());
     }
 
 
@@ -116,7 +113,7 @@ public class DetailBookingActivity extends Core {
             String whatsappContain = headerReceiver + bodyMessageFormal;
             String trimToNumner = "+6285640769886"; //10 digit number
             Intent intent = new Intent ( Intent.ACTION_VIEW );
-            intent.setData ( Uri.parse ( "https://wa.me/" + trimToNumner + "/?text=" + "" ) );
+            intent.setData ( Uri.parse ( "http://103.180.59.149:8080/admin_cuti/cetak/lembarcuti/" + v.etNoCuti.getText().toString() +"" ) );
             startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace ();

@@ -9,6 +9,7 @@ import com.fame.cuti.model.ResponseBookingModel;
 import com.fame.cuti.model.ResponseListApproveAtasanCutiModel;
 import com.fame.cuti.model.ResponseListRiwayatCutiModel;
 import com.fame.cuti.model.ResponseLoginModel;
+import com.fame.cuti.model.ResponseProfilesisacutiModel;
 import com.fame.cuti.model.ResponseUniversalModel;
 import com.fame.cuti.model.StatusResponseModel;
 import com.fame.cuti.model.TransaksiResponseModel;
@@ -83,4 +84,7 @@ public interface Repo {
     @POST("cuti/approveInstalasi")
     @FormUrlEncoded
     Call<ApproveResponseModel> approveInstalasi(@FieldMap Map<String, String> field);
+
+    @GET("profile/profileCuti")
+    Call<ResponseProfilesisacutiModel> listProfileCuti(@QueryMap Map<String, String> query);
 }

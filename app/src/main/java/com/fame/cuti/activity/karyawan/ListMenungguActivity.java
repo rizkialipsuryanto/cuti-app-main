@@ -59,8 +59,8 @@ public class ListMenungguActivity extends Core {
 //        if (id_status.toString() == ""){
             v.layoutNotFound.setVisibility(View.VISIBLE);
             Map<String, String> query = new HashMap<>();
-//            query.put("uid", preferences.getCredential().getData().getUid());
-            query.put("uid", "1");
+            query.put("uid", preferences.getCredential().getData().getUid());
+//            query.put("uid", "1");
             query.put("status", id_status.toString());
             query.put("page", "1");
             query.put("perpage", "100");
