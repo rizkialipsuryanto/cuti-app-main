@@ -9,6 +9,7 @@ import com.fame.cuti.model.ResponseBookingModel;
 import com.fame.cuti.model.ResponseListApproveAtasanCutiModel;
 import com.fame.cuti.model.ResponseListRiwayatCutiModel;
 import com.fame.cuti.model.ResponseLoginModel;
+import com.fame.cuti.model.ResponseProfileModel;
 import com.fame.cuti.model.ResponseProfilesisacutiModel;
 import com.fame.cuti.model.ResponseUniversalModel;
 import com.fame.cuti.model.StatusResponseModel;
@@ -87,4 +88,6 @@ public interface Repo {
 
     @GET("profile/profileCuti")
     Call<ResponseProfilesisacutiModel> listProfileCuti(@QueryMap Map<String, String> query);
+    @GET("profile/profile")
+    Call<ResponseProfileModel> listProfile(@QueryMap Map<String, String> query);
 }

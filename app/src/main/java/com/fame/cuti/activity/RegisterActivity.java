@@ -1,13 +1,20 @@
 package com.fame.cuti.activity;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
+import com.fame.cuti.adapter.ProfileAdapter;
+import com.fame.cuti.adapter.ProfilecutiAdapter;
 import com.fame.cuti.core.Core;
 import com.fame.cuti.databinding.ActivityRegisterBinding;
+import com.fame.cuti.model.ResponseProfileModel;
+import com.fame.cuti.model.ResponseProfilesisacutiModel;
 import com.fame.cuti.service.Api;
 import com.fame.cuti.service.Repo;
 import com.google.gson.Gson;
@@ -33,8 +40,13 @@ public class RegisterActivity extends Core {
     }
 
     private void settingComponent() {
-        v.btnDaftar.setOnClickListener(x -> prosesDaftar());
+//        v.btnDaftar.setOnClickListener(x -> prosesDaftar());
+//        getDataProfil();
 //        v.etJenisKelamin.setOnClickListener(x -> getKelamin());
+    }
+    protected void onResume() {
+        super.onResume();
+        getDataProfil();
     }
 
 //    private void getKelamin() {
@@ -56,6 +68,69 @@ public class RegisterActivity extends Core {
 //                });
 //        alert.show();
 //    }
+private void getDataProfil() {
+    Map<String, String> query = new HashMap<>();
+//        query.put("uid", preferences.getCredential().getData().getUid());
+    query.put("uid", "1");
+
+    Api.createService(Repo.class)
+            .listProfile(query)
+            .enqueue(new Callback<ResponseProfileModel>() {
+                @Override
+                public void onResponse(Call<ResponseProfileModel> call, Response<ResponseProfileModel> response) {
+
+                    if (response.isSuccessful()) {
+                        if(response.body().getStatus().toString().equals("true")) {
+//                            ResponseProfileModel responseProfil = response.body();
+//                            ProfileAdapter profileAdapter = new ProfileAdapter(context, responseProfil);
+//                            profileAdapter.setHasStableIds(true);
+//                            LinearLayoutManager layoutManager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
+//                            if(response.body().getStatus().toString().equals("true")) {
+//                                v.layoutNotFound.setVisibility(View.VISIBLE);
+//                                v.tvError.setText("Data tidak ditemukan");
+                                Log.d("OBJEK", response.body().toString());
+                                Log.d("OBJEK", response.body().getData().getUid().toString());
+                                Log.d("OBJEK", response.body().getData().getNama_emp().toString());
+
+//                                v.etNik.setText(response.body().getData().getNik().toString());
+                            v.etNik.setText(response.body().getData().getNik().toString());
+                            v.etNip.setText(response.body().getData().getNip().toString());
+                            v.etNama.setText(response.body().getData().getNama_emp().toString());
+                            v.etStatusPegawai.setText(response.body().getData().getStatus_pegawai().toString());
+                            v.etProfesi.setText(response.body().getData().getNama_profesi().toString());
+                            v.etAlamat.setText(response.body().getData().getAlamat().toString());
+                            v.etJenisKelamin.setText(response.body().getData().getJenis_kelamin().toString());
+                            v.etNoHp.setText(response.body().getData().getTelp_emp().toString());
+                            v.etUsername.setText(response.body().getData().getUsername().toString());
+                            v.etPassword.setText(response.body().getData().getPassw().toString());
+                            v.etKepalaInstalasi.setText(response.body().getData().getKepala_instalasi().toString());
+                            v.etVerifikatorCuti.setText(response.body().getData().getVerifikator_cuti().toString());
+//                            }else {
+////                                v.layoutNotFound.setVisibility(View.GONE);
+//                                Log.d("OBJEK", response.body().toString());
+//                                Log.d("OBJEK", response.body().getData().toString());
+//                            }
+                        }else {
+                            Log.e("TAG", "onResponse: 200: Error");
+//                            v.layoutNotFound.setVisibility(View.VISIBLE);
+//                            v.tvError.setText(response.body().getMessage());
+                        }
+                    }else {
+                        Log.e("TAG", "onResponse: Error");
+//                        v.layoutNotFound.setVisibility(View.VISIBLE);
+//                        v.tvError.setText("Terjadi kesalahan");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseProfileModel> call, Throwable t) {
+//                    v.sweepRefresh.setRefreshing(false);
+                    Log.e("TAG", "onFailure: " + t.getMessage());
+//                    v.layoutNotFound.setVisibility(View.VISIBLE);
+//                    v.tvError.setText(t.getMessage());
+                }
+            });
+}
 
     private void prosesDaftar() {
         ProgressDialog loading = new ProgressDialog(context);

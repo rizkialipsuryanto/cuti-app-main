@@ -79,6 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:background="@color/gray_muda_banget"
+                    android:enabled="true"
                     android:gravity="top"
                     android:hint="NIK"
                     android:inputType="text"
@@ -92,7 +93,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/dp_8"
-                    android:text="Nama"
+                    android:text="NIP"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_14" />
 
@@ -102,6 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:background="@color/gray_muda_banget"
+                    android:enabled="true"
                     android:gravity="top"
                     android:hint="NIP"
                     android:inputType="text"
@@ -125,6 +127,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:background="@color/gray_muda_banget"
+                    android:enabled="true"
                     android:gravity="top"
                     android:hint="Nama"
                     android:inputType="text"
@@ -148,6 +151,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:background="@color/gray_muda_banget"
+                    android:enabled="true"
                     android:gravity="top"
                     android:hint="Status Pegawai"
                     android:inputType="text"
@@ -171,6 +175,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:background="@color/gray_muda_banget"
+                    android:enabled="true"
                     android:gravity="top"
                     android:hint="Profesi"
                     android:inputType="text"
@@ -194,6 +199,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:background="@color/gray_muda_banget"
+                    android:enabled="true"
                     android:gravity="top"
                     android:hint="Alamat"
                     android:inputType="text"
@@ -217,6 +223,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:background="@color/gray_muda_banget"
+                    android:enabled="true"
                     android:focusable="false"
                     android:gravity="top"
                     android:hint="Jenis Kelamin"
@@ -241,6 +248,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:background="@color/gray_muda_banget"
+                    android:enabled="true"
                     android:gravity="top"
                     android:hint="No Handphpone"
                     android:inputType="phone"
@@ -264,6 +272,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:background="@color/gray_muda_banget"
+                    android:enabled="true"
                     android:gravity="top"
                     android:hint="Username"
                     android:inputType="text"
@@ -287,6 +296,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:background="@color/gray_muda_banget"
+                    android:enabled="true"
                     android:gravity="top"
                     android:hint="Password"
                     android:inputType="textPassword"
@@ -333,6 +343,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:background="@color/gray_muda_banget"
+                    android:enabled="true"
                     android:gravity="top"
                     android:hint="Kepala Instalasi"
                     android:inputType="text"
@@ -356,6 +367,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:background="@color/gray_muda_banget"
+                    android:enabled="true"
                     android:gravity="top"
                     android:hint="Verifikator Cuti"
                     android:inputType="text"
@@ -368,25 +380,25 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.balysv.materialripple.MaterialRippleLayout
-        android:id="@+id/btnDaftar"
-        style="@style/RippleStyleWhite"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
-        tools:ignore="InefficientWeight">
+<!--    <com.balysv.materialripple.MaterialRippleLayout-->
+<!--        android:id="@+id/btnDaftar"-->
+<!--        style="@style/RippleStyleWhite"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="@color/colorPrimary"-->
+<!--        tools:ignore="InefficientWeight">-->
 
-        <TextView
-            android:id="@+id/tvButtonPakai"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-                android:text="UBAH"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/sp_20" />
+<!--        <TextView-->
+<!--            android:id="@+id/tvButtonPakai"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--                android:text="UBAH"-->
+<!--            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="@dimen/sp_20" />-->
 
-    </com.balysv.materialripple.MaterialRippleLayout>
+<!--    </com.balysv.materialripple.MaterialRippleLayout>-->
 
 </RelativeLayout>
