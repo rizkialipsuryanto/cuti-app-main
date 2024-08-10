@@ -38,7 +38,7 @@ public class LoginActivity extends Core {
 
     private void settingComponent() {
         v.btnMasuk.setOnClickListener(x -> prosesMasuk());
-        v.tvDaftarDisini.setOnClickListener(x -> startActivity(new Intent(context, RegisterActivity.class)));
+//        v.tvDaftarDisini.setOnClickListener(x -> startActivity(new Intent(context, RegisterActivity.class)));
     }
 
     private void prosesMasuk() {

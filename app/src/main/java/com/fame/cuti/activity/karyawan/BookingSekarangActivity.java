@@ -57,8 +57,10 @@ public class BookingSekarangActivity extends Core {
     AtasanlangsungResponseModel atasanlangsungcuti;
 
     private List<String> selectedDates;
+    private List<String> selectedDatesEnd;
     private Calendar calendar;
     private TextView selectedDatesTextView;
+    private TextView selectedDatesTextViewEnd;
     String id_jenis= "", id_koordinator="", id_kepalainstalasi="", id_atasanlangsung="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,47 +68,29 @@ public class BookingSekarangActivity extends Core {
         v = ActivityBookingSekarangBinding.inflate(getLayoutInflater());
         setContentView(v.getRoot());
         selectedDates = new ArrayList<>();
+        selectedDatesEnd = new ArrayList<>();
         calendar = Calendar.getInstance();
         selectedDatesTextView = findViewById(R.id.selectedDatesTextView);
+        selectedDatesTextViewEnd = findViewById(R.id.selectedDatesTextViewEnd);
         settingComponent();
     }
 
     private void settingComponent() {
-//        v.tvNama.setText("Halo, "+preferences.getCredential().getData().getNama_emp());
         v.ivBack.setOnClickListener(x -> finish());
         v.sweepRefresh.setOnRefreshListener(this::getJenis);
         getJenis();
-//        v.sweepRefresh.setOnRefreshListener(this::getKoordinator);
-//        getKoordinator();
-//        v.sweepRefresh.setOnRefreshListener(this::getKepalainstalasi);
-//        getKepalainstalasi();
-//        v.sweepRefresh.setOnRefreshListener(this::getAtasanlangsung);
-//        getAtasanlangsung();
 
         v.etJeniscuti.setOnClickListener(x -> getPopUp("jeniscuti"));
-//        v.etKoordinator.setOnClickListener(x -> getPopUpKoordinator("koordinatorcuti"));
-//        v.etKepalaInstalasi.setOnClickListener(x -> getPopUpKepalainstalasi("kepalainstalasicuti"));
-//        v.etAtasanLangsung.setOnClickListener(x -> getPopUpAtasanlangsung("atasanlangsungcuti"));
         v.etTanggalberangkat.setOnClickListener(x -> pilihTanggal());
         v.selectDateButton.setOnClickListener(x -> showDatePickerDialog());
-        v.showSelectedDatesButton.setOnClickListener(x -> showSelectedDates());
+        v.selectDateButtonEnd.setOnClickListener(x -> showDatePickerDialogEnd());
+//        v.showSelectedDatesButton.setOnClickListener(x -> showSelectedDates());
         v.btnInsertCuti.setOnClickListener(x -> prosesDaftar());
 //        v.btnProses.setOnClickListener(x -> {
 //        });
     }
 
     private void prosesDaftar() {
-//        if(id_jenis.isEmpty()){
-//            v.etJeniscuti.setError("Silahkan pilih Jenis Cuti");
-//            v.etJeniscuti.requestFocus();
-//            return;
-//        }
-//        if(v.etTanggalberangkat.getText().toString().isEmpty()){
-//            v.etTanggalberangkat.setError("Silahkan pilih tanggal cuti");
-//            v.etTanggalberangkat.requestFocus();
-//            return;
-//        }
-//        else{
             ProgressDialog loading = new ProgressDialog(context);
             loading.setTitle("Proses Pengajuan Cuti");
             loading.setMessage("Mohon tunggu beberapa saat ...");
@@ -117,6 +101,7 @@ public class BookingSekarangActivity extends Core {
             r.put("uid", preferences.getCredential().getData().getUid().toString());
             r.put("jeniscuti", id_jenis.toString());
             r.put("tglambilcuti", v.selectedDatesTextView.getText().toString());
+            r.put("tglakhircuti", v.selectedDatesTextViewEnd.getText().toString());
             r.put("keterangan", v.etKeteranganCuti.getText().toString());
             r.put("alamatcuti", v.etAlamat.getText().toString());
 
@@ -144,6 +129,38 @@ public class BookingSekarangActivity extends Core {
                         }
                     });
 //        }
+    }
+    private void getPopUp(String jenis) {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.dialog_layout);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(Objects.requireNonNull(dialog.getWindow()).getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+        RecyclerView recyclerView = dialog.findViewById(R.id.shimmerList);
+        TextView dialogTitle = dialog.findViewById(R.id.dialogTitle);
+        dialogTitle.setText("Pilih Jenis Cuti");
+        Log.d(TAG, "getPopUp: " + new Gson().toJson(jeniscuti));
+        JeniscutiAdapter jeniscutiAdapter = new JeniscutiAdapter(context, jeniscuti);
+        jeniscutiAdapter.setHasStableIds(false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(jeniscutiAdapter);
+        jeniscutiAdapter.setOnItemClickListener((view, obj, position) -> {
+            dialog.hide();
+            if(jenis.equalsIgnoreCase("jeniscuti")) {
+                id_jenis = obj.getId_jenis_cuti();
+                v.etJeniscuti.setText(obj.getJenis_cuti());
+            }
+            else {
+                b.swal_error("terjadi kesalahan");
+            }
+        });
+        dialog.show();
     }
 
     private void getJenis() {
@@ -183,6 +200,101 @@ public class BookingSekarangActivity extends Core {
                         v.tvError.setText(t.getMessage());
                     }
                 });
+    }
+
+    private void pilihTanggal(){
+        Calendar newCalendar = Calendar.getInstance();
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+                v.etTanggalberangkat.setText(dateFormatter.format(newDate.getTime()));
+            }
+
+        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+        datePickerDialog.show();
+    }
+
+    private void showDatePickerDialog() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                context,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//                        String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+                        int displayBulan = month + 1;
+                        String formattedMonth = String.format("%02d", displayBulan);
+                        String formattedDay = String.format("%02d", dayOfMonth);
+
+                        String selectedDate = year + "-" + formattedMonth + "-" + formattedDay;
+                        selectedDates.add(selectedDate);
+                        Log.d(TAG, selectedDate);
+                        Log.d(TAG, selectedDates.toString());
+//                        showSelectedDates();
+                        selectedDatesTextView.setText(selectedDate.toString());
+                    }
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+        );
+        datePickerDialog.show();
+    }
+    private void showDatePickerDialogEnd() {
+        DatePickerDialog datePickerDialogEnd = new DatePickerDialog(
+                context,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//                        String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+                        int displayBulan = month + 1;
+                        String formattedMonth = String.format("%02d", displayBulan);
+                        String formattedDay = String.format("%02d", dayOfMonth);
+
+                        String selectedDateEnd = year + "-" + formattedMonth + "-" + formattedDay;
+                        selectedDatesEnd.add(selectedDateEnd);
+                        Log.d(TAG, selectedDateEnd);
+                        Log.d(TAG, selectedDatesEnd.toString());
+//                        showSelectedDatesEnd();
+                        selectedDatesTextViewEnd.setText(selectedDateEnd.toString());
+                    }
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+        );
+        datePickerDialogEnd.show();
+    }
+
+    private void showSelectedDates() {
+        StringBuilder datesString = new StringBuilder();
+//        for (String date : selectedDates) {
+//            datesString.append(date).append(",");
+//        }
+
+        if (datesString.length() > 0) {
+            datesString.setLength(datesString.length() - 1);
+        }
+
+        selectedDatesTextView.setText(datesString.toString());
+    }
+
+    private void showSelectedDatesEnd() {
+        StringBuilder datesString = new StringBuilder();
+//        for (String date : selectedDates) {
+//            datesString.append(date).append(",");
+//        }
+
+        if (datesString.length() > 0) {
+            datesString.setLength(datesString.length() - 1);
+        }
+        selectedDatesTextViewEnd.setText(datesString.toString());
     }
 //    private void getKoordinator() {
 //        v.layoutNotFound.setVisibility(View.VISIBLE);
@@ -298,38 +410,7 @@ public class BookingSekarangActivity extends Core {
 //                    }
 //                });
 //    }
-    private void getPopUp(String jenis) {
-        final Dialog dialog = new Dialog(context);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
-        dialog.setContentView(R.layout.dialog_layout);
-        dialog.setCancelable(true);
 
-        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.copyFrom(Objects.requireNonNull(dialog.getWindow()).getAttributes());
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-
-        RecyclerView recyclerView = dialog.findViewById(R.id.shimmerList);
-        TextView dialogTitle = dialog.findViewById(R.id.dialogTitle);
-        dialogTitle.setText("Pilih Jenis Cuti");
-        Log.d(TAG, "getPopUp: " + new Gson().toJson(jeniscuti));
-        JeniscutiAdapter jeniscutiAdapter = new JeniscutiAdapter(context, jeniscuti);
-        jeniscutiAdapter.setHasStableIds(false);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(jeniscutiAdapter);
-        jeniscutiAdapter.setOnItemClickListener((view, obj, position) -> {
-            dialog.hide();
-            if(jenis.equalsIgnoreCase("jeniscuti")) {
-                id_jenis = obj.getId_jenis_cuti();
-                v.etJeniscuti.setText(obj.getJenis_cuti());
-            }
-            else {
-                b.swal_error("terjadi kesalahan");
-            }
-        });
-        dialog.show();
-    }
 //    private void getPopUpKoordinator(String koordinator) {
 //        final Dialog dialog = new Dialog(context);
 //        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
@@ -426,60 +507,5 @@ public class BookingSekarangActivity extends Core {
 //        });
 //        dialog.show();
 //    }
-    private void pilihTanggal(){
-        Calendar newCalendar = Calendar.getInstance();
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
-
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-
-                Calendar newDate = Calendar.getInstance();
-                newDate.set(year, monthOfYear, dayOfMonth);
-                SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-                v.etTanggalberangkat.setText(dateFormatter.format(newDate.getTime()));
-            }
-
-        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
-
-        datePickerDialog.show();
-    }
-
-    private void showDatePickerDialog() {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(
-                context,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-//                        String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
-                        int displayBulan = month + 1;
-                        String formattedMonth = String.format("%02d", displayBulan);
-                        String formattedDay = String.format("%02d", dayOfMonth);
-
-                        String selectedDate = year + "-" + formattedMonth + "-" + formattedDay;
-                        selectedDates.add(selectedDate);
-                        Log.d(TAG, selectedDate);
-                        Log.d(TAG, selectedDates.toString());
-                        showSelectedDates();
-                    }
-                },
-                calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH)
-        );
-        datePickerDialog.show();
-    }
-
-    private void showSelectedDates() {
-        StringBuilder datesString = new StringBuilder();
-        for (String date : selectedDates) {
-            datesString.append(date).append(",");
-        }
-
-        if (datesString.length() > 0) {
-            datesString.setLength(datesString.length() - 1);
-        }
-
-        selectedDatesTextView.setText(datesString.toString());
-    }
 }

@@ -13,6 +13,7 @@ import com.fame.cuti.model.ResponseProfileModel;
 import com.fame.cuti.model.ResponseProfilesisacutiModel;
 import com.fame.cuti.model.ResponseUniversalModel;
 import com.fame.cuti.model.StatusResponseModel;
+import com.fame.cuti.model.TahunResponseModel;
 import com.fame.cuti.model.TransaksiResponseModel;
 
 import java.util.Map;
@@ -55,6 +56,8 @@ public interface Repo {
 
     @GET("cuti/statuscuti")
     Call<StatusResponseModel> status();
+    @GET("cuti/tahuncuti")
+    Call<TahunResponseModel> tahun();
 
     @GET("cuti/jeniscuti")
     Call<JeniscutiResponseModel> jeniscuti();

@@ -238,7 +238,13 @@
                             android:id="@+id/selectDateButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Pilih Tanggal" />
+                            android:text="Dari" />
+
+                        <Button
+                            android:id="@+id/selectDateButtonEnd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sampai" />
 
                         <Button
                             android:id="@+id/showSelectedDatesButton"
@@ -251,8 +257,15 @@
                             android:id="@+id/selectedDatesTextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="0dp"
+                            android:text="Dari" />
+
+                        <TextView
+                            android:id="@+id/selectedDatesTextViewEnd"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_marginBottom="20dp"
-                            android:text="Tanggal Terpilih Akan Ditampilkan Di Sini" />
+                            android:text="Sampai" />
 
                         <TextView
                             android:layout_width="match_parent"

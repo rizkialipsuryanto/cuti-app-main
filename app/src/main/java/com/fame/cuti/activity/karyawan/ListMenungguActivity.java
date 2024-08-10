@@ -14,11 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.fame.cuti.R;
 import com.fame.cuti.adapter.RiwayatAdapter;
 import com.fame.cuti.adapter.StatusAdapter;
+import com.fame.cuti.adapter.TahunAdapter;
 import com.fame.cuti.core.Core;
 //import com.fame.cuti.databinding.ActivityListBookingBinding;
 import com.fame.cuti.databinding.ActivityListMenungguBinding;
 import com.fame.cuti.model.ResponseListRiwayatCutiModel;
 import com.fame.cuti.model.StatusResponseModel;
+import com.fame.cuti.model.TahunResponseModel;
 import com.fame.cuti.service.Api;
 import com.fame.cuti.service.Repo;
 import com.google.gson.Gson;
@@ -36,7 +38,9 @@ public class ListMenungguActivity extends Core {
     ActivityListMenungguBinding v;
 
     String id_status= "";
+    String tahun_id= "";
     StatusResponseModel status;
+    TahunResponseModel tahun;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +48,8 @@ public class ListMenungguActivity extends Core {
         setContentView(v.getRoot());
 
         v.etStatus.setOnClickListener(x -> getPopUp("status"));
+        v.etTahun.setOnClickListener(x -> getPopUpTahun("tahun"));
+        v.btnfilterstatus.setOnClickListener(x -> getDataHasil());
         v.ivBack.setOnClickListener(x -> finish());
     }
 
@@ -52,15 +58,17 @@ public class ListMenungguActivity extends Core {
         super.onResume();
 //        getData();
         getStatus();
+        getTahun();
     }
 
-    private void getData() {
+    private void getDataHasil() {
 
 //        if (id_status.toString() == ""){
             v.layoutNotFound.setVisibility(View.VISIBLE);
             Map<String, String> query = new HashMap<>();
             query.put("uid", preferences.getCredential().getData().getUid());
 //            query.put("uid", "1");
+            query.put("tahun", tahun_id.toString());
             query.put("status", id_status.toString());
             query.put("page", "1");
             query.put("perpage", "100");
@@ -145,6 +153,38 @@ public class ListMenungguActivity extends Core {
                 });
     }
 
+    private void getTahun() {
+
+        v.sweepRefresh.setRefreshing(true);
+        Api.createService(context, Repo.class)
+                .tahun()
+                .enqueue(new Callback<TahunResponseModel>() {
+                    //                    @SuppressLint("SetTextI18n")
+                    @Override
+                    public void onResponse(Call<TahunResponseModel> call, Response<TahunResponseModel> response) {
+                        v.sweepRefresh.setRefreshing(false);
+                        if (response.isSuccessful()) {
+                            assert response.body() != null;
+                            if (response.body().getCode() == 200) {
+                                tahun = response.body();
+                                Log.d("OBJEK", response.body().getMessage().toString());
+                            } else {
+                                Log.d("OBJEK", response.body().getCode().toString());
+                            }
+                        } else {
+                            ce.showError(response.errorBody());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<TahunResponseModel> call, Throwable t) {
+                        v.sweepRefresh.setRefreshing(false);
+                        v.layoutNotFound.setVisibility(View.VISIBLE);
+                        v.tvError.setText(t.getMessage());
+                    }
+                });
+    }
+
     private void getPopUp(String tujuan) {
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
@@ -170,12 +210,41 @@ public class ListMenungguActivity extends Core {
             if(tujuan.equalsIgnoreCase("status")) {
                 id_status = obj.getId_status();
                 v.etStatus.setText(obj.getStatus());
-                getData();
+//                getData();
             }
-//            else if(tujuan.equalsIgnoreCase("ke")) {
-//                id_ke = obj.getId();
-//                v.etKoordinator.setText(obj.getNama());
-//            }
+            else {
+                b.swal_error("terjadi kesalahan");
+            }
+        });
+        dialog.show();
+    }
+    private void getPopUpTahun(String thn) {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.dialog_layout);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(Objects.requireNonNull(dialog.getWindow()).getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+        RecyclerView recyclerView = dialog.findViewById(R.id.shimmerList);
+        TextView dialogTitle = dialog.findViewById(R.id.dialogTitle);
+        dialogTitle.setText("Pilih Tahun");
+        Log.d(TAG, "getPopUp: " + new Gson().toJson(tahun));
+        TahunAdapter statusAdapter = new TahunAdapter(context, tahun);
+        statusAdapter.setHasStableIds(false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(statusAdapter);
+        statusAdapter.setOnItemClickListener((view, obj, position) -> {
+            dialog.hide();
+            if(thn.equalsIgnoreCase("tahun")) {
+                tahun_id = obj.getTahun_id();
+                v.etTahun.setText(obj.getTahun_nama());
+                getDataHasil();
+            }
             else {
                 b.swal_error("terjadi kesalahan");
             }
